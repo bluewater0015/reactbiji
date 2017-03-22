@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复合组件</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*我们可以创建多个组件来合成一个组件，即把组件的不同功能进行分离*/}
+		var WebSite = React.createClass({
+			render: function(){
+				return(
+					<div>
+						<Name name={this.props.name} />,
+						<Link site={this.props.site} />
+					</div>
+				);
+			}
+		})
+		var Name = React.createClass({
+			render: function(){
+				return(
+					<h1>{this.props.name}</h1>
+				);
+			}
+		});
+		var Link = React.createClass({
+			render: function(){
+				return(
+					<a href="{this.props.site}">
+						{this.props.site}
+					</a>
+				);
+			}
+		});
+		ReactDOM.render(
+			<WebSite name="百度" site="http://www.baidu.com" />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

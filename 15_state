@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*
+			getInitialState方法用于定义初始化状态，也就是一个对象，这个对象可以通过this.state属性获取.
+			当用户点击组件状态改变时，this.setState就修改状态值，每次修改之后自动调用this.render,再次渲染
+			组件。
+		*/}
+		var LikeButton = React.createClass({
+			getInitialState:function(){
+				return {liked: true};
+			},
+			handleClick: function(event){
+				this.setState({liked: !this.state.liked});
+			},
+			render: function(){
+				var text = this.state.liked ? '喜欢':'不喜欢';
+				return (
+					<p onClick={this.handleClick}>
+						你<b>{text}</b>我。点我切换
+					</p>
+				);
+			}
+		});
+		ReactDOM.render(
+			<LikeButton />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

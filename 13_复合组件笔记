@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>复合组件笔记</title>
+	<style>
+		.box{
+			width: 1000px;
+			margin: 0 auto;
+			height: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1>复合组件</h1>
+		<p>我们可以创建多个组件合成一个组件,即把组件的不同功能点分离出来</p>
+		<p>下面我们实现输出网站名字和网址的组件</p>
+		<img src="img/fuhe.png" alt="">
+	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style: none;
+}
+.box{
+	width: 1300px;
+	margin: 0 auto;
+}
+.back{
+	background: #d00;
+}
+.color{
+	color: #d00;
+}
+img{
+	width: 1200px;
+	height: auto;
+}
+.blue{
+	color: blue;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*state和props的区别：props是不可变的，而state可以根据与用户交互数据改变，这就是为什么有些容器组件
+			需要定义state来更行和修改数据，而子组件只能通过props来传递数据
+			实例中name通过this.props.name获取
+		*/}
+		var Hello =  React.createClass({
+			render: function(){
+				return <h1>{this.props.name}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<Hello name="xiao" />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Props验证</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*
+			Props验证使用PropTypes，它可以保证我们的应用组件被正确使用，
+			React.PropTypes提供很多验证器，来验证传入数据是否有效，当向props
+			传入无效的数据时，js控制台会抛出警告。
+		*/}
+		var title = 123;
+		var Hello = React.createClass({
+			propTypes: {
+				title: React.PropTypes.string.isRequired,
+			},
+			render: function(){
+				return <h1>{this.props.title}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<Hello title={title} />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

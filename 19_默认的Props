@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认的props</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*通过getDefaultProps为props设置默认值*/}
+		var Hello = React.createClass({
+			getDefaultProps: function(){
+				return{
+					name: "xiaoxiao"
+				};
+			},
+			render: function(){
+				return <h1>{this.props.name}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<Hello />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

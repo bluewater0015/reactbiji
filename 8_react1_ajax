@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+	<script src="js/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		var UserGist = React.createClass({
+			<!-- 初始化组件的state值，其返回值会赋值给组件的this.state属性 -->
+			getInitialState: function(){
+				return{
+					username: '',
+					lastGistUrl: ''
+				};
+			},
+			<!-- 
+			componentDidMount该方法发生在render方法成功调用并且真实的DOM已经被渲染之后
+			在该函数内部可以通过this.getDOMNode()来获取当前组件的节点。
+			 -->
+			componentDidMount: function(){
+				this.serverRequest = $.get(this.props.source,function(result){
+					console.log(result);
+					var lastGist = result[0];
+					this.setState({
+						<!-- login:"octocat" -->
+						username: lastGist.owner.login,
+						<!-- html_url:"https://github.com/octocat" -->
+						lastGistUrl: lastGist.html_url
+					});
+				}.bind(this));
+			},
+			此方法会在首次渲染之前被调用，这也是在render方法调用前可以修改组件state的最后一次机会。
+			componentWillUnmount: function(){
+				this.serverRequest.abort();
+			},
+			render: function(){
+				return(
+					<div>
+						{this.state.username}用户最新的共享地址
+						<a href="{this.state.lastGistUrl}">{this.state.lastGistUrl}</a>
+					</div>
+				);
+			}
+		});
+		ReactDOM.render(
+			<UserGist source="https://api.github.com/users/octocat/gists" />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

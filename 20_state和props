@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>state和props</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<div id="box"></div>
+	<script type="text/babel">
+		{/*
+			在父组件中设置state，并通过在子组件上使用props将其传递到子组件上，
+			在render函数中，我们使用name和site来获取父组件传递过来的数据
+		*/}
+		var WebSite = React.createClass({
+			getInitialState: function(){
+				return {
+					name: "天下",
+					site: "www.baidu.com"
+				};
+			},
+			render: function(){
+				return (
+					<div>
+						<Name name={this.state.name} />
+						<Link site={this.state.site} />
+					</div>
+				);
+			}
+
+		});
+		var Name = React.createClass({
+			render: function(){
+				return (
+					<h1>{this.props.name}</h1>
+				);
+			}
+		});
+		var Link = React.createClass({
+			render: function(){
+				return (
+					<a href={this.props.site}>
+						{this.props.site}
+					</a>
+				);
+			}
+		});
+		ReactDOM.render(
+			<WebSite />,
+			document.getElementById('box')
+		);
+	</script>
+</body>
+</html>

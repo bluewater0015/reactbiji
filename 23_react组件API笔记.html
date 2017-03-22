@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/com.css" />
+	<title>react组件API笔记</title>
+	<style>
+		.bold{
+			font-weight: 900;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<h1>react组件API</h1>
+		<ul>
+			<li class="bold">设置状态：setState</li>
+			<ul>
+				<li>setState(object,nextState[,function callback])</li>
+				<li>参数说明：</li>
+				<li>nextState将要设置的新状态，该状态会和当前的state合并</li>
+				<li>
+					callback,回调函数。该函数会在setState设置成功,且组件重新渲染之后调用,
+					合并nextState和当前state，并重新渲染组件。setState是react事件处理函数中
+					和请求回调函数中触发UI更新的主要方法。
+				</li>
+				<li><img src="img/react_API.png" alt=""></li>
+				<li>
+					getInitialState 方法用于定义初始化状态，也就是一个对象，这个对象可以通过
+					<b class="color">this.state</b>属性获取。
+					当用户点击组件,导致状态改变时，this.setState就修改状态值，每次修改之后就自动
+					调用this.render,再次渲染组件。
+				</li>
+			</ul>
+			<li class="bold">替换状态：replaceState</li>
+			<ul>
+				<li>replaceState(object,nextState[,function callback])</li>
+				<li>nextState将要设置新的状态，替换当前的state</li>
+				<li>callback 可选参数，回到函数，该函数在replaceState设置成功后，且组件重新渲染后调用</li>
+			</ul>
+			<li class="bold">设置属性：setProps</li>
+			<ul>
+				<li>setProps(object nextProps[,function callback])</li>
+				<li>nextProps将要设置新的属性，该状态会和当前的props合并</li>
+				<li>callback 回调函数，可选参数，该函数会在setProps设置成功，且组件重新渲染之后调用，</li>
+			</ul>
+			<li class="bold">替换属性：replaceProps</li>
+			<li class="bold">强制更新：forceUpdate</li>
+			<li class="bold">获取DOM节点：findDOMNode</li>
+			<li class="bold">判断组件挂载状态：isMounted</li>
+			<ul>
+				<li>isMounted()方法用于判断组件是否挂载到DOM中</li>
+			</ul>
+		</ul>
+	</div>
+</body>
+</html>

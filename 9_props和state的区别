@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>props和state的区别</title>
+</head>
+<body>
+	props 一般用于父组件向子组件通信，在组件之间通信使用
+	state 一般用于组件的内部状态维护，更行组件的内部的数据，状态，更新子组件的props
+</body>
+</html>

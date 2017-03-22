@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/react.js"></script>
+	<script src="js/react-dom.js"></script>
+	<script src="js/browser.min.js"></script>
+</head>
+<body>
+	<script type="text/babel">
+		var Hello = React.createClass(
+			<!-- 1.创建阶段 -->
+			getDefaultProps: function(){
+				console.log("创建阶段-getDefaultProps");
+				return{};
+			},
+			<!-- 2.实例化阶段 -->
+			getInitialStatus: function(){
+				console.log("getInitialStatus");
+				return {
+					num: 1;
+				}
+			},
+			渲染并返回到DOM
+
+		);
+	</script>
+</body>
+</html>
